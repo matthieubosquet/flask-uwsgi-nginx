@@ -3,9 +3,15 @@ from flask import Flask
 
 app = Flask(__name__)
 
+from shared import toto
+
 @app.route("/")
 def home():
     return """<h1>This is app1!</h1>"""
 
+@app.route("/toto")
+def echototo():
+    return toto.toto
+
 if __name__ == '__main__':
-    app.run() 
+    app.run()

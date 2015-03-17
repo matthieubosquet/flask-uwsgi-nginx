@@ -25,4 +25,4 @@ RUN pip install -r $APP_DIR/requirements.txt
 
 EXPOSE 5000
 
-CMD ["uwsgi", "--socket", "0.0.0.0:5000", "--wsgi-file", "/application/app.py", "--callable", "app", "--processes", "2", "--threads", "4", "--logto", "/log/uwsgi.log"]
+CMD ["uwsgi", "--socket", "0.0.0.0:5000", "--chdir", "/application", "--wsgi-file", "/application/app.py", "--module", "app", "--callable", "app", "--processes", "2", "--threads", "4", "--logto", "/log/uwsgi.log"]
